@@ -3,7 +3,7 @@
 ## 一.Motivation:
 
 现实社会中，人类之间的沟通交流对话主要有两个目的：**交换信息**和**建立社交联系**；
-
+d
 如果是为了交换分享想法，一般情况下，我们不会仅仅等待回答他人的提问，也会主动引起改变话题或者发问，使得对话可以交流下去；
 
 如果是为了建立社交联系，我们的对话应该丰富多彩并且包含情感。
@@ -88,7 +88,7 @@ DailyDialog数据集与我们日常生活一致，例如：
 
   这两种模式阐明了我们的日常沟通方式，这些模式仅存在于单圈数据集或面向任务的数据集中， 如Ubuntu（Lowe等，2015）和餐馆预订数据集（Bordes和Weston，2016）。
 
-###3.5.丰富的情感
+### 3.5.丰富的情感
 
 日常沟通的另一个主要目的是加强社会联系。 因此，人们倾向于在交流中表达自己的情感。  由于自动情绪分类很困难（Zhou et al。，2017），我们手动标记每个话语的情绪，使其尽可能准确。 这将DailyDialog数据集与大多数现有对话框数据集区分开来。 同样，我们总结了表3.3中标记情绪的基本统计数据。
 
@@ -115,19 +115,19 @@ DailyDialog中的情感统计。 EU表示包含主要六个的情感类别的话
  调整验证集上的参数并报告测试集上的性能。 在所有实验中，词汇量大小设置为25,000，并且所有OOV词都映射到UNK。 word embedding维度设置为300，并使用在Google新闻语料库4上训练的Word2Vec嵌入来初始化它们。 以下实验中的编码器和解码器RNN是具有512个隐藏神经元的1层GRU（Cho等人，2014）。
 然后将所有训练的模型参数用作初始化点。 我们将batch_size设置为128并将学习率固定为0.0002。 使用Adam优化器训练模型以最小化交叉熵（Kingma和Ba，2014）。
 
-###4.2.基于检索的方法
+### 4.2.基于检索的方法
 
 共选择了三类四种基于检索的方法，即（1）基于embedding的相似性（Luo和Li，2016）; （2）基于feature的相似性（Jafarpour等，2010; Yan等，2016）; （3）（4）基于特征的相似性与意图和情感重排序（Luo和Li，2016; Otsuka等，2017）。 我们的目标是在DailyDialog上查看基于经典embedding，基于特征和重排序增强的方法是否有效。
 
-####4.2.1.Embedding-based Similarity for Response Retrieval
+#### 4.2.1.Embedding-based Similarity for Response Retrieval
 
 基于embedding的回复检索方法，首先要训练[词向量（Word embedding）](https://www.zhihu.com/question/32275069)。作者在Google News Corpus数据集上利用Word2Vec工具训练出word embedding,对两个词的相似度计算利用了向量之间的cosine值，得到的值越高排名越高。
 
-####4.2.2.Feature-based Similarity for Response Retrieval
+#### 4.2.2.Feature-based Similarity for Response Retrieval
 
 基于特征的方法主要应用文本语言特征，利用[TF-IDF](https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/tf-idf/8816134%3Ffr%3Daladdin)和几个模糊特征QRatio, WRatio和Partial ratio来对回复进行排名。首先先利用TF-IDF筛选出1000个候选答案，然后利用以上几个模糊特征对候选答案进行排名。
 
-####4.2.3.Feature-based Similarity for Response Retrieval and Reranking
+#### 4.2.3.Feature-based Similarity for Response Retrieval and Reranking
 
 这个方法也是基于特征的，不过做重要的是他对基于特征的方法进行了重排，先利用基于特征的方法选出一些答案，然后取排名靠前的几个，利用一些特殊的特征进行Reranking
 
@@ -147,7 +147,7 @@ Reranking方法：
 
   我们还通过计算检索到的响应的标签（即意图，情感）与地面回复的标签之间的“equivalence””百分比来评估它们。 结果报告在表6中。虽然使用标签时可以看到细微的改进，但我们推测它不是一个非常强大的评估指标。 得出结论：“equivalence””百分比越高，检索到的响应越好（越连贯，越适合），这是不安全的。
 
-  ####4.2.4.检索方法结果比较
+  #### 4.2.4.检索方法结果比较
 
   在对话响应生成中，诸如BLEU的单词级重叠度量方法是不充分的（Liu et al。，2016）。 为了提供关于意图和情感是否有益以及它们如何有效的见解，我们在表7中进行了几个案例研究。
 
@@ -181,7 +181,7 @@ Reranking方法：
 
 研究了与其他数据集的预训练是否会提高前三代方法的性能。 使用OpenSubtitle数据集（J¨orgTiedemann，2009，因为它没有针对每个会话的清晰和简洁的分段，我们将三个连续的话语中的每一个视为上下文，并将前一个作为响应。 最后，随机抽取3,000,000个三轮对话，并用于预先训练12个时期的比较模型。 我们将使用预训练的方法表示为{Pre +}。
 
-####4.4.6.生成方法结果比较
+#### 4.4.6.生成方法结果比较
 
 在三种生成式方法中，HRED实现了最高的BLEU分数，因为它考虑了历史信息。此外，即使我们以最简单的方式利用它们，标签信息也是有效的。 这些发现与以前的工作一致。
 
@@ -197,14 +197,14 @@ Reranking方法：
 
 ## 5.相关工作
 
-###5.1.Domain-Specific Datasets：
+### 5.1.Domain-Specific Datasets：
 
 - TRAINS (Ringger et al., 1996) ：主要包含在购物领域的问题和解决方法的对话，通常用语训练task-oranted对话系统。
 - bAbI synthetic dialog (Bordes and Weston, 2016) and Movie Dialog datasets (Dodge
   et al., 2015)：主要是餐厅点餐和电影订票方面的对话数据
 - Ubuntu dataset (Lowe et al., 2015)：这个数据库主要是由ubuntu系统的维护者和使用者在网站上的疑难问题的对话日志组成
 
-###5.2.Open-Domain Datasets：
+### 5.2.Open-Domain Datasets：
 
 - Sina Weibo dataset (Wang et al., 2013)&Twitter dataset：爬取大量的微博和下面的回复作为对话
 - OpenSubtitle (Jorg Tiedemann ¨ , 2009) &SubTle dataset (Bordes and Weston,
