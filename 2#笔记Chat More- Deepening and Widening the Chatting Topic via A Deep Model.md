@@ -1,10 +1,9 @@
-
-
-#论文题目：Chat More: Deepening and Widening the Chatting Topic via A
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 ![img](./图片/2-1.png)
 
-**摘要：**过去十年来，人机交互方法经历了蓬勃的发展，尤其是通过对话系统的交互。在本论文中，我们研究了开放域多轮对话系统的答复生成任务。值得一提的是，虽然已经有很多致力于研究对话系统的工作，但其中很少涉及加深或拓宽对话中的聊天话题，而这有助于增加用户与机器聊天的时间。为了吸引用户与对话系统交流，我们在本论文中提出了一种全新的深度模型，其包含 3 个通道，即**全局通道、深度通道和宽度通道**。
+**摘要:**
+过去十年来，人机交互方法经历了蓬勃的发展，尤其是通过对话系统的交互。在本论文中，我们研究了开放域多轮对话系统的答复生成任务。值得一提的是，虽然已经有很多致力于研究对话系统的工作，但其中很少涉及加深或拓宽对话中的聊天话题，而这有助于增加用户与机器聊天的时间。为了吸引用户与对话系统交流，我们在本论文中提出了一种全新的深度模型，其包含 3 个通道，即**全局通道、深度通道和宽度通道**。
 
 - 全局通道是编码给定上下文语境中的完整历史信息;
 
@@ -16,7 +15,7 @@
 
 论文、数据和代码地址：https://sigirdawnet.wixsite.com/dawnet
 
-##一.介绍
+## 一.介绍
 
 对话系统也被称为聊天机器人或会话智能体，有很多广泛地应用，范围涵盖娱乐、知识共享和客户服务等。粗略而言，对话系统可分为任务导向型的对话系统和非面向任务的对话系统。前者可用于完成垂直领域内的特定任务；而后者的目标则是与人进行开放领域的闲聊。从技术上讲，这两类对话系统可以通过基于规则的方法、基于检索的方法或基于生成的方法实现。更具体地，由基于规则的方法定义的启发式模板在一定程度上会限制所希望得到的对话系统的多样性。基于检索的方法则往往严重依赖于其所检索的数据库。相对而言，基于生成的方法可以生成更灵活的答复——这种方法通常是将问题-回复对（post-response pair）分别当作输入和输出来训练一个深度神经网络。
 
@@ -104,11 +103,11 @@ Implement methods:
 
 由于一般词的高频率，生成式模型倾向于产生枯燥的响应。为了提高response的质量，已经提出了各种方法。
 
-**Attention with Intention for a Neural Network Conversation Model**添加了一个RNN来模拟SEQ2SEQ模型中意图过程的动态。
+**Attention with Intention for a Neural Network Conversation Model** 添加了一个RNN来模拟SEQ2SEQ模型中意图过程的动态。
 
 **A Diversity-Promoting Objective Function for Neural Conversation Models.** 使用最大互信息作为神经模型中的目标函数来减轻迟钝的反应
 
-**Topic Aware Neural Response Generation.**主题感知序列到序列模型考虑主题词来自Twitter LDA模型的响应生成中的主题词。但是，使用Twitter LDA获取此类主题词具有挑战性，因为帖子非常短，开放域对话中的主题很少。根据我们对新浪微博对话语料库300万次会议的统计数据，有超过2500万个独特单词，其中超过一半出现不到五次。考虑到稀疏性问题，很难根据短篇帖子确定相关主题词。
+**Topic Aware Neural Response Generation.** 主题感知序列到序列模型考虑主题词来自Twitter LDA模型的响应生成中的主题词。但是，使用Twitter LDA获取此类主题词具有挑战性，因为帖子非常短，开放域对话中的主题很少。根据我们对新浪微博对话语料库300万次会议的统计数据，有超过2500万个独特单词，其中超过一半出现不到五次。考虑到稀疏性问题，很难根据短篇帖子确定相关主题词。
 
 -------
 
@@ -173,7 +172,7 @@ $$
 
 $e_{k_i^c} \in R^{d_e} $表示第i个contextual keyword也就是预测关键词；
 
-$W_t \in R^{d_h*d_e}$表示映射矩阵，$d_e$表示输入keyword 的embedding大小，d_h表示global 编码的维度；
+$W_t \in R^{d_h*d_e}$表示映射矩阵，$d_e$表示输入keyword 的embedding大小，$d_h$ 表示global 编码的维度；
 
 T表示上下文token的数量；
 
