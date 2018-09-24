@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
 ![img](./图片/2-1.png)
 
@@ -170,6 +170,8 @@ $$
 公式（3）：c_t =  \sum^T_{i=1}a_{ti}h_i+\sum^{T+M}_{i=T+1}a_{ti}m_i
 $$
 
+
+
 $e_{k_i^c} \in R^{d_e} $表示第i个contextual keyword也就是预测关键词；
 
 $W_t \in R^{d_h*d_e}$表示映射矩阵，$d_e$表示输入keyword 的embedding大小，$d_h$ 表示global 编码的维度；
@@ -186,7 +188,7 @@ $d_v^k$表示keyword 词典的大小，$W_k \in R^{d_v^k*d_h}$,$b_k \in R^{d_v^k
 
 ![image-20180924123322155](./图片/2-8.png)
 
-###3.4.Deep Channel
+### 3.4.Deep Channel
 
 ![image-20180924125549449](./图片/2-10.png)
 
